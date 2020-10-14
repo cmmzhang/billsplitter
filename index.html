@@ -2,11 +2,11 @@
         <head>
         <title>Bill Splitter</title>
         <script>
-         function billFunction() {
-           var bill =parseFloat(document.getElementById("fbill").value);
+         function costPerPerson() {
+           var bill = parseFloat(document.getElementById("fbill").value);
            var numPeople = parseFloat(document.getElementById("fpeople").value);
-           var tip =document.querySelector('input[name="percent"]:checked').value;
-           var sharedCost =(bill+bill*tip)/numPeople;
+           var tip = document.querySelector('input[name="percent"]:checked').value;
+           var sharedCost = (bill+bill*tip)/numPeople;
            var roundSharedCost = sharedCost.toFixed(2);
            alert("Each person's share is: " + roundSharedCost);
           }
