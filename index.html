@@ -3,8 +3,8 @@
       <title>Bill Splitter</title>
         <script>
           function costPerPerson() {
-          var bill = document.getElementById("fbill").value;
-          var numPeople = document.getElementById("fpeople").value;
+            var bill = document.getElementById("fbill").value;
+            var numPeople = document.getElementById("fpeople").value;
            try {
              if(isNaN(bill)) throw "Bill amount should be a number";
              if(isNaN(numPeople)) throw "Number of people should be a number";
@@ -15,12 +15,12 @@
             alert(err);
             return
           }
-          bill = parseFloat(document.getElementById("fbill").value);
-          numPeople = parseFloat(document.getElementById("fpeople").value);
-          var tip = document.querySelector('input[name="percent"]:checked').value;
-          var sharedCost = (bill+bill*tip)/numPeople;
-          var roundSharedCost = sharedCost.toFixed(2);
-          alert("Each person's share is: " + roundSharedCost);
+            bill = parseFloat(document.getElementById("fbill").value);
+            numPeople = parseFloat(document.getElementById("fpeople").value);
+            var tip = document.querySelector('input[name="percent"]:checked').value;
+            var sharedCost = (bill+bill*tip)/numPeople;
+            var roundSharedCost = sharedCost.toFixed(2);
+            alert("Each person's share is: " + roundSharedCost);
         }
         </script>
         <meta charset="utf-8">
