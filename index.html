@@ -5,19 +5,16 @@
           function costPerPerson() {
           var bill = document.getElementById("fbill").value;
           var numPeople = document.getElementById("fpeople").value;
-
            try {
               if(isNaN(bill)) throw "Bill amount should be a number";
               if(isNaN(numPeople)) throw "Number of people should be a number";
               if(!bill) throw "Bill amount is empty";
               if(!numPeople) throw "Number of people is empty";
-
           }
           catch(err) {
               alert(err);
               return
           }
-
           bill = parseFloat(document.getElementById("fbill").value);
           numPeople = parseFloat(document.getElementById("fpeople").value);
           var tip = document.querySelector('input[name="percent"]:checked').value;
