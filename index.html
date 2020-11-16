@@ -10,6 +10,9 @@
              if(isNaN(numPeople)) throw "Number of people should be a number";
              if(!bill) throw "Bill amount is empty";
              if(!numPeople) throw "Number of people is empty";
+             if(bill < 0) throw "Bill amount should be a positive number";
+             if(numPeople < 0) throw "Number of people should be a positive n
+              umber";
           }
           catch(err) {
             alert(err);
