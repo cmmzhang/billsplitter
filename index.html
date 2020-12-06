@@ -1,67 +1,180 @@
 <html>
-    <head>
-      <title>Bill Splitter</title>
-        <script>
-          function costPerPerson() {
-            var bill = document.getElementById("fbill").value;
-            var numPeople = document.getElementById("fpeople").value;
-           try {
-             if(isNaN(bill)) throw "Bill amount should be a number";
-             if(isNaN(numPeople)) throw "Number of people should be a number";
-             if(!bill) throw "Bill amount is empty";
-             if(!numPeople) throw "Number of people is empty";
-             if(bill < 0) throw "Bill amount should be a positive number";
-             if(numPeople < 0) throw "Number of people should be a positive number";
-          }
-          catch(err) {
-            alert(err);
-            return
-          }
-            bill = parseFloat(document.getElementById("fbill").value);
-            numPeople = parseFloat(document.getElementById("fpeople").value);
-            var tip = document.querySelector('input[name="percent"]:checked').value;
-            var sharedCost = (bill+bill*tip)/numPeople;
-            var roundSharedCost = sharedCost.toFixed(2);
-            alert("Each person's share is: " + roundSharedCost);
+  <head>
+    <title>Bill Splitter</title>
+      <script>
+        function costPerPerson() {
+	      var bill = document.getElementById("fbill").value;
+	      var numPeople = document.getElementById("fpeople").value;
+
+	      try {
+		    if(isNaN(bill)) throw "Bill amount should be a number";
+        if(isNaN(numPeople)) throw "Number of people should be a number";
+		    if(!bill) throw "Bill amount is empty";
+ 		    if(!numPeople) throw "Number of people is empty";
+        if(bill < 0) throw "Bill amount should be a positive number";
+        if(numPeople < 0) throw "Number of people should be a positive number";
         }
-        </script>
-        <meta charset="utf-8">
-        </head>
-        <body>
+        catch(err) {
+        alert(err);
+        return 
+        }
+
+	      bill = parseFloat(document.getElementById("fbill").value);
+	      numPeople = parseFloat(document.getElementById("fpeople").value);
+        var tip = document.querySelector('input[name="percent"]:checked').value;
+        document.getElementById("tipAmount").innerHTML= "Tip amount: $" + Number(bill*tip).toFixed(2);
+        document.getElementById("totalBillAmount").innerHTML= "Bill with tip: $" + Number(bill+bill*tip).toFixed(2);
+        document.querySelector("#perperson").innerHTML = "Split: $" + ((bill+bill*tip)/numPeople).toFixed(2); 
+	      } 
+        function handelRest() {
+        document.querySelector('form').reset();
+        document.querySelector('#tipAmount').innerHTML = "";
+        document.querySelector('#totalBillAmount').innerHTML = "";
+        document.querySelector('#perPerson').innerHTML = "$ 0";
+        }
+      
+	    </script>
+	  <meta charset="utf-8">
+    </head>
+	    <body>
         <style>
-           body {
-             background-color:lightGray;
-         }
-        h1 {text-align: center; margin-top: 60px;}
-        p {text-align: center; font-size: 1.25em;}
-        form {text-align: center;}
+          body {
+	  	      background-color:rgb(247, 238, 230);
+          }
+          h1 {text-align: center; margin-top: 90px}
+	        p {text-align: center; font-size: 1.25em}
+          form {
+          text-align: center;
+          margin: 0 auto;
+          border: 2px dashed rgb(245, 190, 142);
+          border-radius: 25px;
+          width: 330px;
+          height: 550px;
+          padding: 2rem;
+          box-sizing: border-box
+          } 
+          .header {
+          text-align: center;
+          background:rgb(247, 238, 230);
+          color: salmon;
+          font-size: 50px;
+          font-family: unset;
+          }
+          .button{
+          margin-top: 1.5rem;
+          margin-bottom: 1.25rem;
+          border-radius: 10px;
+          display: inline-block;
+          padding: .5rem 1rem;
+          font-family: unset;
+          font-size: 1rem;
+          color: #173F5F;
+          background-color:rgb(247, 217, 173);
+          border: solid rgb(248, 201, 131);
+          }
+          #resetBtn{
+          margin-top: 1.5rem;
+          border-radius: 10px;
+          display: inline-block;
+          padding: .5rem 1.5rem;
+          font-family: unset;
+          font-size: 1rem;
+          color: #173F5F;
+          background-color: rgb(198, 239, 245);
+          border: solid rgb(161, 235, 248);
+          }
+          #fbill{
+          margin-top: 1rem;
+          margin-bottom: 8px;
+          border-radius: 10px;
+          display: inline-block;
+          padding: .5rem .15rem;
+          font-family: unset;
+          border:solid white;
+          }
+          #fpeople{
+          margin-top: 1rem;
+          border-radius: 10px;
+          display: inline-block;
+          padding: .5rem .15rem;
+          border: solid white;
+          }
+          .bill-amount-label{
+          color: #173F5F;
+          font-family: unset;
+          font-size: 1.3rem;
+          }
+          .tip-font{
+          color: #173F5F;
+          font-family: unset;
+          font-size: 1.3rem;
+          }
+          .people-font{
+          color: #173F5F;
+          font-family: unset;
+          font-size: 1.3rem;
+          }
+          .number-font{
+          color: #173F5F;
+          font-family: unset;
+          font-size: 1.35rem;
+          }
+          .subtitle{
+          font-size: 1.3rem;
+          }
+          #perPerson{
+          padding-top: 1rem;
+          font-family: monospace;
+          font-size: 2rem;
+          font-weight: 400;
+          text-align: center;
+          color: #41b650;      
+          }
+          #tipAmount{
+          padding-top: 1.5rem;
+          font-family: monospace;
+          font-size: 1.5rem;
+          font-weight: 400;
+          text-align: center;
+          color: #41b650;  
+          }
+          #totalBillAmount{
+          padding-top: 1.5rem;
+          font-family: monospace;
+          font-size: 1.5rem;
+          font-weight: 400;
+          text-align: center;
+          color: #41b650;  
+          }
         </style>
-        <h1> Bill Splitter</h1>
-        <p><em>Split bills for shared expenses</em> </p>
-
-        <form action="/action_page.php>
-          <label for="fbill">Bill amount:
-          </label><br>
-            <input type="text" id="fbill" name="fbill"><br>
-          <label for="ftip">Percentage of tip to include:</label><br>
-            <input type="radio" id="00" name="percent" value="0">
-            <label for="00">0 %</label><br>
-            <input type="radio" id="15" name="percent" value="0.15" checked="checked">
-            <label for="15">15%</label><br>
-            <input type="radio" id="20" name="percent" value="0.20">
-            <label for="20">20%</label><br>
-            <input type="radio" id="25" name="percent" value="0.25">
-            <label for="25">25%</label><br>
-            <input type="radio" id="30" name="percent" value="0.30">
-            <label for="30">30%</label><br>
-            <input type="radio" id="35" name="percent" value="0.35">
-            <label for="35">35%</label><br>
-          <label for="fpeople">Number of people sharing:</label><br>
-            <input type="text" id="fpeople" name="fpeople"><br>
-           <label for="calculate"></label>
-             <input type="button" value="Calculate" onClick="costPerPerson();">
-
+        <h1 class="header"> Bill Splitter</h1>
+        <p class="subtitle"><em>Split bills for shared expenses</em> </p>
+        
+        <form action="/action_page.php"> 
+          <label class="bill-amount-label" for="fbill">Bill amount:</label><br>
+          <input type="text" id="fbill" name="fbill"><br>
+          <label class="tip-font" for="ftip">Tip to include:</label><br>
+          <input type="radio" id="00" name="percent" value="0">
+          <label class="number-font" for="00">0 %</label><br>
+          <input type="radio" id="15" name="percent" value="0.15" checked="checked">
+          <label class="number-font" for="15">15%</label><br> 
+          <input type="radio" id="20" name="percent" value="0.20">
+          <label class="number-font" for="20">20%</label><br>
+          <input type="radio" id="25" name="percent" value="0.25">
+          <label class="number-font" for="25">25%</label><br>
+          <input type="radio" id="30" name="percent" value="0.30">
+          <label class="number-font" for="30">30%</label><br>
+          <input type="radio" id="35" name="percent" value="0.35">
+          <label class="number-font" for="35">35%</label><br>
+          <label class="people-font" for="fpeople">Number of people:</label><br>
+          <input type="number" min="1" id="fpeople" name="fpeople"><br>
+          <label for="calculate"></label>
+          <input class="button" type="button" value="Calculate" onClick="costPerPerson();">
+          <input id="resetBtn" type="button" value="Reset" onclick="handelRest();">
+          <span id="billAmount"></span><br>
+          <span id="tipAmount"></span><br>
+          <span id="totalBillAmount"></span>
+          <div id="perPerson"></div>
         </form>
         </body>
 </html>
-
