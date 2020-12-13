@@ -7,40 +7,40 @@
 	      var numPeople = document.getElementById("fpeople").value;
 
 	      try {
-		    if(isNaN(bill)) throw "Bill amount should be a number";
-        if(isNaN(numPeople)) throw "Number of people should be a number";
-		    if(!bill) throw "Bill amount is empty";
- 		    if(!numPeople) throw "Number of people is empty";
-        if(bill < 0) throw "Bill amount should be a positive number";
-        if(numPeople < 0) throw "Number of people should be a positive number";
-        }
-        catch(err) {
-        alert(err);
-        return 
-        }
+		if(isNaN(bill)) throw "Bill amount should be a number";
+        	if(isNaN(numPeople)) throw "Number of people should be a number";
+		if(!bill) throw "Bill amount is empty";
+ 		if(!numPeople) throw "Number of people is empty";
+        	if(bill < 0) throw "Bill amount should be a positive number";
+        	if(numPeople < 0) throw "Number of people should be a positive number";
+        	}
+             catch(err) {
+        	alert(err);
+        	return 
+        	}
 
-	      bill = parseFloat(document.getElementById("fbill").value);
-	      numPeople = parseFloat(document.getElementById("fpeople").value);
-        var tip = document.querySelector('input[name="percent"]:checked').value;
-        document.getElementById("tipAmount").innerHTML= "Tip amount: $" + Number(bill*tip).toFixed(2);
-        document.getElementById("totalBillAmount").innerHTML= "Bill with tip: $" + Number(bill+bill*tip).toFixed(2);
-        document.querySelector("#perperson").innerHTML = "Split: $" + ((bill+bill*tip)/numPeople).toFixed(2); 
+	      	bill = parseFloat(document.getElementById("fbill").value);
+	      	numPeople = parseFloat(document.getElementById("fpeople").value);
+        	var tip = document.querySelector('input[name="percent"]:checked').value;
+        	document.getElementById("tipAmount").innerHTML= "Tip amount: $" + Number(bill*tip).toFixed(2);
+        	document.getElementById("totalBillAmount").innerHTML= "Bill with tip: $" + Number(bill+bill*tip).toFixed(2);
+        	document.querySelector("#perperson").innerHTML = "Split: $" + ((bill+bill*tip)/numPeople).toFixed(2); 
 	      } 
         function handelRest() {
-        document.querySelector('form').reset();
-        document.querySelector('#tipAmount').innerHTML = "";
-        document.querySelector('#totalBillAmount').innerHTML = "";
-        document.querySelector('#perPerson').innerHTML = "$ 0";
-        }
+        	document.querySelector('form').reset();
+        	document.querySelector('#tipAmount').innerHTML = "";
+        	document.querySelector('#totalBillAmount').innerHTML = "";
+        	document.querySelector('#perPerson').innerHTML = "$ 0";
+        	}
       
-	    </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</script>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-	    <body>
+	<body>
         <style>
           body {
-	  	      background-color:rgb(247, 238, 230);
+	  	background-color:rgb(247, 238, 230);
           }
           h1 {text-align: center; margin-top: 50px}
 	        p {text-align: center; font-size: 1.25em}
